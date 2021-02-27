@@ -1,0 +1,63 @@
+@import url('https://fonts.googleapis.com/css2?family=Akaya+Telivigala&display=swap');
+#title{
+    font-family: 'Akaya Telivigala', cursive;
+    margin-top: 50px;
+}
+
+body{
+    text-align: center;
+    background-image: url(Sulphur.jpg);
+}
+
+.main-container{
+    background-color:blue;
+    height: 50vh;
+    width: 60vh;
+height: 40vh;
+margin-left: auto;
+margin-top:110px;
+margin-right: auto;
+    align-items: center;
+    justify-content: center;
+    
+}
+
+#form{
+background-color:aqua ;
+width: 60vh;
+height: 40vh;
+margin-left: auto;
+margin-right: auto;
+position: relative;
+bottom: 0;
+margin-top: 70px;
+}
+
+#form button{
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-family: 'Akaya Telivigala', cursive;
+    font-size: 20px;
+    transition: all 0.3s ease-in-out;
+    background-color: transparent;
+    border: 2px solid;
+    border-color: black;
+    border-radius: 7px;
+    
+    
+}
+
+#form button:hover{
+    margin-top: 40px;
+    margin-bottom: 20px;
+    font-family: 'Akaya Telivigala', cursive;
+    font-size: 20px;
+    background-color: white;
+}
+
+
+#form input{
+    margin-top: 40px;
+    font-family: 'Akaya Telivigala', cursive;
+    font-size: 20px;
+}
