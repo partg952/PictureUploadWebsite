@@ -29,7 +29,7 @@ var firebaseConfig = {
       console.log(user.user.email)
       database.ref().child('users').child(wow).child('email').set(user.user.email).then(function(){
         console.log('Success')
-        window.location.href = 'sign-in.html'
+        window.location.href = '/sign-in/sign-in.html'
       })
       .catch(function(){
         console.log("nope")
@@ -49,7 +49,7 @@ visible.addEventListener('click' , ()=>{
   if(password.type === 'password')
   {
     password.type = 'text'
-    visible.innerHTML = cl
+    
   }
   else{
     password.type = 'password'
