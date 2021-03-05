@@ -15,23 +15,43 @@ var firebaseConfig = {
 
 let database = firebase.database()
 let storage = firebase.storage()
+let main = document.getElementById('main-container')
 // let file = document.getElementById('file')
+let plus = document.getElementById('plus')
+let number_of_videos = 0
 
-// file.addEventListener('change' , function(e){
-//     let files = e.target.files[0]
-//    let url =  storage.ref().child('images').child('pic')
-//     url.put(files).then(function(){
-//         url.getDownloadURL().then((link)=>{
-//             database.ref().child("url").child("img").set(link)
-//         })    
-//     })
-    
-    
-// })
 
-// database.ref().child('url').child('img').on('value' , function(snapshot){
-//     let img = document.createElement('img')
-//     document.body.appendChild(img)
-//     img.src = snapshot.val()
-//     console.log(snapshot.val())
-// })
+plus.addEventListener('click' , ()=>{
+  window.location.href = 'plus.html'
+})
+
+database.ref().child('url').child('num').on('value' , function(snapshot){
+  let num = snapshot.val()
+  console.log(snapshot.val())
+  while(num>0){
+    database.ref().child('url').child(num).on('value' , function(snapshot2){
+      let image = document.createElement("img")
+      image.src = snapshot2.val()
+      image.classList.add('class')
+      main.appendChild(image)
+    })
+    num--
+  }
+})
+
+database.ref().child("videos" + '/').child("videos").on('value' , (videosnum)=>{
+console.log(videosnum.val())
+number_of_videos = videosnum.val()
+while(number_of_videos>0){
+  database.ref().child("videos" + '/').child(number_of_videos).on('value', (link)=>{
+    let video = document.createElement("video")
+    main.appendChild(video)
+    video.src = link.val()
+    video.controls = 'true'
+    console.log(link.val())
+    video.classList.add("class")
+  })
+  
+  number_of_videos--
+}
+})
